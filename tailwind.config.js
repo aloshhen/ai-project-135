@@ -3,15 +3,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dota-dark': '#1A1A2E',
-        'dota-accent': '#16213E',
-        'dota-highlight': '#0F3460',
-        'dota-text': '#E94560'
+        background: {
+          primary: '#0F172A',
+          secondary: '#1E293B'
+        },
+        primary: {
+          main: '#3B82F6',
+          light: '#60A5FA',
+          dark: '#2563EB'
+        },
+        text: {
+          primary: '#F9FAFB',
+          secondary: '#E5E7EB'
+        }
       },
-      backgroundImage: {
-        'dota-gradient': 'linear-gradient(to right, #1A1A2E, #16213E)'
+      borderRadius: {
+        'sm': '0.5rem',
+        'md': '0.75rem',
+        'lg': '1rem'
       }
-    },
+    }
   },
   plugins: [],
 }
