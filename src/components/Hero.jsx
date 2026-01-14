@@ -1,37 +1,29 @@
 import { motion } from 'framer-motion'
+import { BackgroundBeams } from './ui/background-beams'
 
 function Hero() {
   return (
-    <section 
-      id="hero" 
-      className="min-h-screen flex items-center justify-center bg-dota-gradient text-white relative overflow-hidden"
-    >
+    <div id="hero" className="relative h-screen flex items-center justify-center">
+      <BackgroundBeams />
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="text-center max-w-3xl px-4"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center z-10 px-4"
       >
-        <h1 className="text-6xl font-bold mb-6 text-dota-text">Dominate the Battlefield</h1>
-        <p className="text-xl mb-8 text-gray-300">
-          Advanced strategies, hero builds, and in-depth guides for experienced Dota 2 players
+        <h1 className="text-6xl font-bold text-white mb-4">Dota 2 Masters</h1>
+        <p className="text-xl text-[#E5E7EB] max-w-2xl mx-auto">
+          Профессиональные гайды и стратегии для опытных игроков
         </p>
-        <div className="space-x-4">
-          <a 
-            href="#hero-guides" 
-            className="bg-dota-text text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition"
-          >
-            Explore Hero Guides
-          </a>
-          <a 
-            href="#build-calculator" 
-            className="border-2 border-dota-text text-dota-text px-8 py-3 rounded-full hover:bg-dota-text hover:text-white transition"
-          >
-            Hero Build Calculator
-          </a>
-        </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="mt-8 bg-[#3B82F6] text-white px-8 py-3 rounded-[1rem] hover:bg-[#2563EB] transition"
+        >
+          Начать изучение
+        </motion.button>
       </motion.div>
-    </section>
+    </div>
   )
 }
 
