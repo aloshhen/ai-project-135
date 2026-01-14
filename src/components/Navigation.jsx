@@ -1,23 +1,28 @@
 import { motion } from 'framer-motion'
-import { Gamepad2 } from 'lucide-react'
 
 function Navigation() {
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <motion.nav 
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 w-full bg-dota-accent/50 backdrop-blur-md z-50 py-4"
+    <motion.nav
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="fixed w-full z-50 bg-[#1E293B] bg-opacity-70 py-4"
     >
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-3">
-          <Gamepad2 className="text-dota-text w-8 h-8" />
-          <h1 className="text-2xl font-bold text-dota-text">Dota 2 Pro Guides</h1>
-        </div>
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <div className="text-[#3B82F6] text-2xl font-bold">Dota 2 Guide</div>
         <div className="space-x-6">
-          <a href="#hero-guides" className="text-white hover:text-dota-text transition">Hero Guides</a>
-          <a href="#build-calculator" className="text-white hover:text-dota-text transition">Build Calculator</a>
-          <a href="#about" className="text-white hover:text-dota-text transition">About</a>
+          {['hero', 'features', 'guides', 'reviews'].map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className="text-white hover:text-[#3B82F6] transition"
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          ))}
         </div>
       </div>
     </motion.nav>
